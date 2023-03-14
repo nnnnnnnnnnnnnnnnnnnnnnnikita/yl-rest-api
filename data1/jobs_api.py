@@ -11,3 +11,14 @@ def get_jobs():
 
     jobs = db_session.create_session().query(Jobs).all()
     return jsonify({'jobs': [i.to_dict() for i in jobs]})
+
+
+@blueprint.route('/api/jobs/<int:job_id>', methods=['GET'])
+def get_a_job(job_id):
+    
+    job = db_session.create_session().query(Jobs).get(job_id)
+    if not job:
+        return jsonify({'error': 'Not found'})
+    else:
+        return jsonify({'job': job.to_dict()})
+    
