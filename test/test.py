@@ -54,3 +54,27 @@ print(delete('http://127.0.0.1:8080/api/jobs/101232323').json())
 
 #to check the execution
 print(get('http://127.0.0.1:8080/api/jobs').json())
+#correct PUT request
+print(put('http://127.0.0.1:8080/api/jobs/55',
+           json={"team_leader": 10, "title": "test", "work_size": 44, "collaborators": '1, 2',
+                 "start_date": None, "end_date": None, "is_finished": True}).json())
+
+#to check the execution, team-lid change
+print(get('http://127.0.0.1:8080/api/jobs').json())
+
+#wrong PUT request- no such tim lead
+print(put('http://127.0.0.1:8080/api/jobs/55',
+           json={"team_leader": 44433, "title": "test", "work_size": 44, "collaborators": '1, 2',
+                 "start_date": None, "end_date": None, "is_finished": True}).json())
+
+#wrong PUT-request - no such id
+print(put('http://127.0.0.1:8080/api/jobs/342423424',
+           json={"team_leader": 44433, "title": "test", "work_size": 44, "collaborators": '1, 2',
+                 "start_date": None, "end_date": None, "is_finished": True}).json())
+
+#wrong PUT-request- some data is missing
+print(put('http://127.0.0.1:8080/api/jobs/55',
+           json={"team_leader": 10, "title": "test"}).json())
+
+#to check the execution
+print(get('http://127.0.0.1:8080/api/jobs').json())
