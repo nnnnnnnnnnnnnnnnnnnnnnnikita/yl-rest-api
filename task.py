@@ -1,7 +1,7 @@
 import datetime
 from flask_login import LoginManager
 from flask import Flask, make_response, jsonify
-from data1 import jobs_api, api-user
+from data1 import jobs_api, api_user
 import data1.db_session as session
 
 
@@ -27,6 +27,6 @@ if __name__ == '__main__':
     db_session = session.create_session()
     
     app.register_blueprint(jobs_api.blueprint)
-    app.register_blueprint(api-user.blueprint)
+    app.register_blueprint(api_user.blueprint)
 
     app.run(port=8080, host='127.0.0.1')
