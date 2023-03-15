@@ -27,5 +27,6 @@ if __name__ == '__main__':
     db_session = session.create_session()
     
     app.register_blueprint(jobs_api.blueprint)
+    app.register_blueprint(api-user.blueprint)
 
     app.run(port=8080, host='127.0.0.1')
