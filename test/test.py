@@ -40,3 +40,17 @@ print(post('http://127.0.0.1:8080/api/jobs',
 
 #to check the execution
 print(get('http://127.0.0.1:8080/api/jobs').json())
+#true deleting
+print(delete('http://127.0.0.1:8080/api/jobs/1').json())
+
+#to check the execution
+print(get('http://127.0.0.1:8080/api/jobs').json())
+
+#wrong there is no such id
+print(delete('http://127.0.0.1:8080/api/jobs/1232332').json())
+
+#wrong there is no such id
+print(delete('http://127.0.0.1:8080/api/jobs/101232323').json())
+
+#to check the execution
+print(get('http://127.0.0.1:8080/api/jobs').json())
